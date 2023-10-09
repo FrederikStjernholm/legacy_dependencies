@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AjourLegacyDependencies",
-            targets: ["JSONModel", "SimpleExif", "OrderedDictionary", "ISO8601", "FMDB"]
+            targets: ["JSONModel", "ISO8601", "FMDB"]
         ),
     ],
     targets: [
@@ -22,24 +22,6 @@ let package = Package(
             cSettings: [
                 .headerSearchPath("Sources/JSONModel"),
                 .headerSearchPath("Sources/JSONModel/include")
-            ]
-        ),
-        .target(
-            name: "SimpleExif",
-            path: "Sources/SimpleExif",
-            publicHeadersPath: "include",
-            cSettings: [
-                .headerSearchPath("Sources/SimpleExif"),
-                .headerSearchPath("Sources/SimpleExif/include")
-            ]
-        ),
-        .target(
-            name: "OrderedDictionary",
-            path: "Sources/OrderedDictionary",
-            publicHeadersPath: "include",
-            cSettings: [
-                .headerSearchPath("Sources/OrderedDictionary"),
-                .headerSearchPath("Sources/OrderedDictionary/include")
             ]
         ),
         .target(
