@@ -5,19 +5,60 @@ import PackageDescription
 
 let package = Package(
     name: "AjourLegacyDependencies",
+    platforms: [
+        .iOS(.v12),
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "AjourLegacyDependencies",
-            targets: ["AjourLegacyDependencies"]),
+            targets: ["JSONModel", "SimpleExif", "OrderedDictionary", "ISO8601", "FMDB"]
+        ),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "AjourLegacyDependencies"),
-        .testTarget(
-            name: "AjourLegacyDependenciesTests",
-            dependencies: ["AjourLegacyDependencies"]),
+            name: "JSONModel",
+            path: "Sources/JSONModel",
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("Sources/JSONModel"),
+                .headerSearchPath("Sources/JSONModel/include")
+            ]
+        ),
+        .target(
+            name: "SimpleExif",
+            path: "Sources/SimpleExif",
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("Sources/SimpleExif"),
+                .headerSearchPath("Sources/SimpleExif/include")
+            ]
+        ),
+        .target(
+            name: "OrderedDictionary",
+            path: "Sources/OrderedDictionary",
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("Sources/OrderedDictionary"),
+                .headerSearchPath("Sources/OrderedDictionary/include")
+            ]
+        ),
+        .target(
+            name: "ISO8601",
+            path: "Sources/ISO8601",
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("Sources/ISO8601"),
+                .headerSearchPath("Sources/ISO8601/include")
+            ]
+        ),
+        .target(
+            name: "FMDB",
+            path: "Sources/FMDB",
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("Sources/FMDB"),
+                .headerSearchPath("Sources/FMDB/include")
+            ]
+        )
     ]
 )
